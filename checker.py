@@ -67,12 +67,18 @@ def getProc():
 	proc_avrg = int(round((float(ram_used) / proc_num)*1000,0))
 	
 	##### Sortiere nach Verbrauch
-	rsc_1 = sorted(proc_clean,key=lambda x: x[1], reverse=True)[0]
-	rsc_1 = "{0: <16} verbraucht: ~ [{1:4.0f}] MB".format(rsc_1[0],rsc_1[1])
-	rsc_2 = sorted(proc_clean,key=lambda x: x[1], reverse=True)[1]
-	rsc_2 = "{0: <16} verbraucht: ~ [{1:4.0f}] MB".format(rsc_2[0],rsc_2[1])
-	rsc_3 = sorted(proc_clean,key=lambda x: x[1], reverse=True)[2]
-	rsc_3 = "{0: <16} verbraucht: ~ [{1:4.0f}] MB".format(rsc_3[0],rsc_3[1])
+	rsc   = sorted(proc_clean,key=lambda x: x[1], reverse=True)
+	rsc_len = 0
+	for N in range(0,3):
+		if rsc_len > rsc_len:
+			rsc_len = len(rsc[N][0])
+	
+	rsc_1 = rsc[0]
+	rsc_1 = "{0: <{2}} verbraucht: ~ [{1:4.0f}] MB".format(rsc_1[0],rsc_1[1],rsc_len)
+	rsc_2 = rsc[1]
+	rsc_2 = "{0: <{2}} verbraucht: ~ [{1:4.0f}] MB".format(rsc_2[0],rsc_2[1],rsc_len)
+	rsc_3 = rsc[2]
+	rsc_3 = "{0: <{2}} verbraucht: ~ [{1:4.0f}] MB".format(rsc_3[0],rsc_3[1],rsc_len)
 	
 	return proc_num,proc_avrg,rsc_1,rsc_2,rsc_3
 	
@@ -180,7 +186,7 @@ def visualize(ram,proc,space):
 	elif proc[0] > 150:
 		print("Es laufen momentan ["+colored(str(proc[0]),red)+"] Prozesse."+colored("                                                  WARNING: THRESHOLD EXCEEDED",red))
 	print("=======================================================================================================================")
-	print("D.h. ein Prozess verbraucht durchschnittlich ["+str(proc[1])+"] MB")
+	print("D.h. ein Prozess verbraucht durchschnittlich ["+colored(str(proc[1]),cyan)+"] MB")
 	print("-----------------------------------------------------")
 	print("Die drei Ressource intensivsten Prozesse sind:")
 	print("1. ->",proc[2])
@@ -206,4 +212,4 @@ if __name__ == "__main__":
 		proc  = getProc()
 		space = getSpace()
 		visualize(ram,proc,space)
-		time.sleep(3)
+		time.sleep(1)
