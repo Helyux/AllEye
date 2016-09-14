@@ -8,7 +8,7 @@ import os
 import sys
 import time
 import subprocess
-#import log
+import log
 
 def currT():
 	t = time.strftime("%H:%M:%S")
@@ -27,9 +27,9 @@ def getRAM():
 	riegel = len(ram_info_avail)
 	for r in ram_info_avail:
 		ram_avail = ram_avail + int(r)
-	ram_avail = round(ram_avail / 1000000000,2)
+	ram_avail = round(ram_avail / 1000000000,2)           #MBIT o. MBYTE
 	ram_avail = "{:5.2f}".format(ram_avail)
-	ram_free = round(ram_info_free / 1000000,2)
+	ram_free = round(ram_info_free / 1000000,2)			  #MBIT o. MBYTE
 	ram_free = "{:5.2f}".format(ram_free)
 	global ram_used
 	ram_used = round(float(ram_avail) - float(ram_free),2)
@@ -115,11 +115,11 @@ def getSpace():
 			try:
 				item[1][1] = int(item[1][1])
 				item[1][1] = item[1][1] / 1000000000
-				item[1][1] = round(item[1][1])
+				item[1][1] = round(item[1][1],2)
 				#--
 				item[2][1] = int(item[2][1])
 				item[2][1] = item[2][1] / 1000000000
-				item[2][1] = round(item[2][1])
+				item[2][1] = round(item[2][1],2)
 				
 				if item[2][1] < item[1][1]:
 					del item
@@ -198,7 +198,8 @@ def visualize(ram,proc,space):
 	print("Alle Internen Festplatten")
 	print("=======================================================================================================================")
 	for item in space:
-		print("| Driveletter: [{0: <2}] | Size: [{1:5.0f}] GB | Free: [{2:5.0f}] GB |".format(item[0][1],item[2][1],item[1][1]))
+		usd = item[2][1] - item[1][1]
+		print("| Driveletter: [{0: <2}] | Size: [{1:4.0f}] GB | Free: [{2:6.1f}] GB | Used: [{3:6.1f}] GB".format(item[0][1],item[2][1],item[1][1],usd))
 	print("=======================================================================================================================")
 	#####################################################################################
 	
