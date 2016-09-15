@@ -1,22 +1,23 @@
 # CheckSYS
 
-### Current Version: 0.2
+### Current Version: [0.2]
 
 ### Changelog:
 
-- 0.1. 
+* 0.1. 
   * Initial Commit
-- 0.2. 
+* 0.2. 
   * Added Color Support for Shell
   * Rearranged Code to be more Structured
   * Added own function for visualizing the Information
-  * Added Automatic reload on the Data
+  * Added Automatic reload on the collected Data
  
 ### Description:
 
 Simple System Tracking Tool
 
-
-
-
-
+Currently Tracking:
+  
+  * RAM
+  * Disk Space
+  * Processes
