@@ -8,7 +8,14 @@ import os
 import sys
 import time
 import subprocess
-import log
+import logging
+
+log = logging.getLogger()
+handler = logging.FileHandler('CheckSYS.log')
+format = logging.Formatter('%(asctime)s %(levelname)s %(message)s',		"%d-%m-%Y %H:%M:%S")
+handler.setFormatter(format)
+log.addHandler(handler) 
+log.setLevel(logging.DEBUG)
 
 def currT():
 	t = time.strftime("%H:%M:%S")
@@ -27,9 +34,9 @@ def getRAM():
 	riegel = len(ram_info_avail)
 	for r in ram_info_avail:
 		ram_avail = ram_avail + int(r)
-	ram_avail = round(ram_avail / 1000000000,2)           #MBIT o. MBYTE
+	ram_avail = round(ram_avail / 1000000000,2)           #MBIT o. MBYTE?
 	ram_avail = "{:5.2f}".format(ram_avail)
-	ram_free = round(ram_info_free / 1000000,2)			  #MBIT o. MBYTE
+	ram_free = round(ram_info_free / 1000000,2)			  #MBIT o. MBYTE?
 	ram_free = "{:5.2f}".format(ram_free)
 	global ram_used
 	ram_used = round(float(ram_avail) - float(ram_free),2)
@@ -70,8 +77,9 @@ def getProc():
 	rsc   = sorted(proc_clean,key=lambda x: x[1], reverse=True)
 	rsc_len = 0
 	for N in range(0,3):
-		if rsc_len > rsc_len:
-			rsc_len = len(rsc[N][0])
+		temp = len(rsc[N][0])
+		if temp > rsc_len:
+			rsc_len = temp
 	
 	rsc_1 = rsc[0]
 	rsc_1 = "{0: <{2}} verbraucht: ~ [{1:4.0f}] MB".format(rsc_1[0],rsc_1[1],rsc_len)
@@ -161,7 +169,7 @@ def visualize(ram,proc,space):
 	if float(ram[1]) >= 8:
 		print("Gesamtkapazität   : ["+colored(str(ram[1]),green)+"] GB")
 	else:
-		print("Gesamtkapazität   : ["+colored(str(ram[1]),red)+"] GB")
+		print("Gesamtkapazität   : ["+colored(str(ram[1]),red)+"] GB"+colored("                                                      WARNING: THIS MAY SLOW DOWN YOUR PC",red))
 	if float(ram[2]) >= 4:
 		print("Ram pro Riegel    : ["+colored(str(ram[2]),green)+"] GB")
 	else:
@@ -173,9 +181,11 @@ def visualize(ram,proc,space):
 	elif float(ram[3]) >= float(ram[1])*0.3:
 		print("Kapazität frei    : ["+colored(str(ram[3]),yellow)+"] GB"+colored("                                                      WARNING: QUOTA BELOW 50 PERCENT",yellow))
 		print("Kapazität benutzt : ["+colored(str(ram[4]),yellow)+"] GB")
+		#log.warning("The QUOTA of the RAM is below 30%")
 	elif float(ram[3]) < float(ram[1])*0.3:
 		print("Kapazität frei    : ["+colored(str(ram[3]),red)+"] GB"+colored("                                                      WARNING: QUOTA BELOW 30%",red))
 		print("Kapazität benutzt : ["+colored(str(ram[4]),red)+"] GB")
+		#log.warning("The QUOTA of the RAM is below 30%")
 	print("=======================================================================================================================")
 	#####################################################################################
 	print("")
@@ -199,7 +209,7 @@ def visualize(ram,proc,space):
 	print("=======================================================================================================================")
 	for item in space:
 		usd = item[2][1] - item[1][1]
-		print("| Driveletter: [{0: <2}] | Size: [{1:4.0f}] GB | Free: [{2:6.1f}] GB | Used: [{3:6.1f}] GB".format(item[0][1],item[2][1],item[1][1],usd))
+		print("Driveletter: [{0: <2}] | Size: [{1:4.0f}] GB | Free: [{2:6.1f}] GB | Used: [{3:6.1f}] GB".format(item[0][1],item[2][1],item[1][1],usd))
 	print("=======================================================================================================================")
 	#####################################################################################
 	
@@ -209,8 +219,11 @@ if __name__ == "__main__":
 	
 	while True:
 	
-		ram   = getRAM()
-		proc  = getProc()
-		space = getSpace()
-		visualize(ram,proc,space)
-		time.sleep(1)
+		try:
+			ram   = getRAM()
+			proc  = getProc()
+			space = getSpace()
+			visualize(ram,proc,space)
+			time.sleep(1)
+		except Exception as e:
+			log.error("Error Message:",e)
