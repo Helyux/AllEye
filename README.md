@@ -1,7 +1,7 @@
 # AllEye
 
 ### Current Version: [1.2]
-### Version Date   : [15.10.2016]
+    Version Date   : [15.10.2016]
 
 ### Changelog:
 
