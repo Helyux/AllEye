@@ -9,13 +9,37 @@ import sys
 import time
 import subprocess
 import logging
+import configparser
+
+version = "1.2"
+versiondate = " (15.10.2016)"
 
 log = logging.getLogger()
-handler = logging.FileHandler('CheckSYS.log')
+handler = logging.FileHandler('AllEye v.'+version+'.log')
 format = logging.Formatter('%(asctime)s %(levelname)s %(message)s',		"%d-%m-%Y %H:%M:%S")
 handler.setFormatter(format)
 log.addHandler(handler) 
 log.setLevel(logging.DEBUG)
+
+def readCFG(filename):
+	wDir = os.path.dirname(os.path.realpath(__file__))
+	iniVar = {}
+	
+	# Config Laden
+	with open(wDir+"\\"+filename) as ini:
+		config = configparser.RawConfigParser(allow_no_value=True)
+		config.read_file(ini)
+	
+	for section in config.sections():
+		key = section
+		opt = {}
+		for options in config.options(section):
+			y = {options : config.get(section, options)}
+			opt.update(y)
+		x = {key : opt}
+		iniVar.update(x)
+
+	return iniVar
 
 def currT():
 	t = time.strftime("%H:%M:%S")
@@ -73,6 +97,9 @@ def getProc():
 	proc_num = len(proc_clean)
 	proc_avrg = int(round((float(ram_used) / proc_num)*1000,0))
 	
+	##### Addieren der Gleichnamigen Prozesse
+	#proc_add = 
+		
 	##### Sortiere nach Verbrauch
 	rsc   = sorted(proc_clean,key=lambda x: x[1], reverse=True)
 	rsc_len = 0
@@ -216,6 +243,8 @@ def visualize(ram,proc,space):
 if __name__ == "__main__":
 
 	os.system("mode 120,60")
+	log.info("--------------- AllEye v."+version+versiondate+" Log ---------------")
+	iniVar = readCFG('Settings.ini')
 	
 	while True:
 	
@@ -224,6 +253,7 @@ if __name__ == "__main__":
 			proc  = getProc()
 			space = getSpace()
 			visualize(ram,proc,space)
-			time.sleep(1)
+			#time.sleep(1)
 		except Exception as e:
 			log.error("Error Message:",e)
+			continue
