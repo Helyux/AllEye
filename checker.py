@@ -123,7 +123,7 @@ def getSpace():
 	temp = []
 	tfix = []
 	
-	space = subprocess.check_output('wmic logicaldisk get deviceid, freespace, size /VALUE', shell=True).decode("utf-8").split()
+	space = subprocess.check_output('wmic logicaldisk get deviceid, freespace, size /VALUE', shell=True).decode("utf-8").split() #providername = \\172.xxxx
 	num = 0
 	for item in space:
 		item = item.split("=")
