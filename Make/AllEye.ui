@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>793</width>
+    <width>818</width>
     <height>803</height>
    </rect>
   </property>
@@ -35,7 +35,7 @@
     <property name="lineWidth">
      <number>2</number>
     </property>
-    <widget class="QFrame" name="Frame04_Rating">
+    <widget class="QFrame" name="F04_Rating">
      <property name="geometry">
       <rect>
        <x>600</x>
@@ -74,7 +74,7 @@
        <string>Performance Rating:</string>
       </property>
      </widget>
-     <widget class="QLabel" name="var_rating">
+     <widget class="QLabel" name="var_box_rating">
       <property name="geometry">
        <rect>
         <x>60</x>
@@ -95,7 +95,7 @@
       </property>
      </widget>
     </widget>
-    <widget class="QFrame" name="Frame01_Time">
+    <widget class="QFrame" name="F01_Time">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -152,7 +152,7 @@
        <string>Date:</string>
       </property>
      </widget>
-     <widget class="QLabel" name="var_date">
+     <widget class="QLabel" name="var_box_date">
       <property name="geometry">
        <rect>
         <x>80</x>
@@ -170,7 +170,7 @@
        <string>17.10.2016</string>
       </property>
      </widget>
-     <widget class="QLabel" name="var_time">
+     <widget class="QLabel" name="var_box_time">
       <property name="geometry">
        <rect>
         <x>80</x>
@@ -189,7 +189,7 @@
       </property>
      </widget>
     </widget>
-    <widget class="QFrame" name="Frame02_Runtime">
+    <widget class="QFrame" name="F02_Runtime">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -246,7 +246,7 @@
        <string>Started:</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_32">
+     <widget class="QLabel" name="var_box_started">
       <property name="geometry">
        <rect>
         <x>100</x>
@@ -264,7 +264,7 @@
        <string>15:35</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_33">
+     <widget class="QLabel" name="var_box_runtime">
       <property name="geometry">
        <rect>
         <x>100</x>
@@ -283,7 +283,7 @@
       </property>
      </widget>
     </widget>
-    <widget class="QFrame" name="Frame03_Errors">
+    <widget class="QFrame" name="F03_Errors">
      <property name="geometry">
       <rect>
        <x>400</x>
@@ -340,7 +340,7 @@
        <string>Errors:</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_34">
+     <widget class="QLabel" name="var_box_errors">
       <property name="geometry">
        <rect>
         <x>100</x>
@@ -358,7 +358,7 @@
        <string>12345678</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_35">
+     <widget class="QLabel" name="var_box_warnings">
       <property name="geometry">
        <rect>
         <x>100</x>
@@ -377,11 +377,6 @@
       </property>
      </widget>
     </widget>
-    <zorder>Frame04_Rating</zorder>
-    <zorder>Frame01_Time</zorder>
-    <zorder>Frame02_Runtime</zorder>
-    <zorder>Frame03_Errors</zorder>
-    <zorder>Frame02_Ram</zorder>
    </widget>
    <widget class="QFrame" name="Frame02_Ram">
     <property name="geometry">
@@ -401,7 +396,7 @@
     <property name="lineWidth">
      <number>2</number>
     </property>
-    <widget class="QLabel" name="label_5">
+    <widget class="QLabel" name="static_ram_label_4">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -414,7 +409,7 @@
       <string>Ram pro Riegel:</string>
      </property>
     </widget>
-    <widget class="Line" name="line_5">
+    <widget class="Line" name="static_ram_line_2">
      <property name="geometry">
       <rect>
        <x>2</x>
@@ -430,7 +425,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
-    <widget class="QLabel" name="label_2">
+    <widget class="QLabel" name="var_ram_fullsize">
      <property name="geometry">
       <rect>
        <x>112</x>
@@ -446,7 +441,7 @@
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="label_14">
+    <widget class="QLabel" name="var_ram_used">
      <property name="geometry">
       <rect>
        <x>112</x>
@@ -462,7 +457,7 @@
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="Line" name="line_4">
+    <widget class="Line" name="static_ram_line_5">
      <property name="geometry">
       <rect>
        <x>95</x>
@@ -478,7 +473,7 @@
       <enum>Qt::Vertical</enum>
      </property>
     </widget>
-    <widget class="QLabel" name="label_3">
+    <widget class="QLabel" name="static_ram_label_2">
      <property name="geometry">
       <rect>
        <x>122</x>
@@ -491,7 +486,7 @@
       <string>Ram-Riegel verbaut</string>
      </property>
     </widget>
-    <widget class="Line" name="line_6">
+    <widget class="Line" name="static_ram_line_4">
      <property name="geometry">
       <rect>
        <x>2</x>
@@ -507,7 +502,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
-    <widget class="Line" name="line_3">
+    <widget class="Line" name="static_ram_line_6">
      <property name="geometry">
       <rect>
        <x>2</x>
@@ -526,7 +521,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
-    <widget class="Line" name="line_2">
+    <widget class="Line" name="static_ram_line_3">
      <property name="geometry">
       <rect>
        <x>2</x>
@@ -542,7 +537,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
-    <widget class="QLabel" name="x200_var_ramcount">
+    <widget class="QLabel" name="var_ram_unitcount">
      <property name="geometry">
       <rect>
        <x>102</x>
@@ -555,7 +550,7 @@
       <string>[4]</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_8">
+    <widget class="QLabel" name="static_label_size_1">
      <property name="geometry">
       <rect>
        <x>147</x>
@@ -568,7 +563,7 @@
       <string>GB</string>
      </property>
     </widget>
-    <widget class="Line" name="line">
+    <widget class="Line" name="static_ram_line_1">
      <property name="geometry">
       <rect>
        <x>2</x>
@@ -587,7 +582,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
-    <widget class="QLabel" name="label_6">
+    <widget class="QLabel" name="static_ram_label_5">
      <property name="geometry">
       <rect>
        <x>29</x>
@@ -600,7 +595,7 @@
       <string>Kapazität frei:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_4">
+    <widget class="QLabel" name="static_ram_label_3">
      <property name="geometry">
       <rect>
        <x>12</x>
@@ -613,7 +608,7 @@
       <string>Gesamtkapazität:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_7">
+    <widget class="QLabel" name="static_ram_label_6">
      <property name="geometry">
       <rect>
        <x>12</x>
@@ -626,7 +621,7 @@
       <string>Kapazität benuzt:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_13">
+    <widget class="QLabel" name="var_ram_free">
      <property name="geometry">
       <rect>
        <x>112</x>
@@ -642,7 +637,7 @@
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="static_ram_label_1">
      <property name="geometry">
       <rect>
        <x>12</x>
@@ -655,7 +650,7 @@
       <string>Im Computer sind</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_9">
+    <widget class="QLabel" name="static_label_size_2">
      <property name="geometry">
       <rect>
        <x>147</x>
@@ -668,7 +663,7 @@
       <string>GB</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_10">
+    <widget class="QLabel" name="static_label_size_3">
      <property name="geometry">
       <rect>
        <x>147</x>
@@ -681,7 +676,7 @@
       <string>GB</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_11">
+    <widget class="QLabel" name="static_label_size_4">
      <property name="geometry">
       <rect>
        <x>147</x>
@@ -694,7 +689,7 @@
       <string>GB</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_12">
+    <widget class="QLabel" name="var_ram_perunit">
      <property name="geometry">
       <rect>
        <x>112</x>
@@ -729,7 +724,7 @@
     <property name="lineWidth">
      <number>2</number>
     </property>
-    <widget class="QLabel" name="x400_var_drivecount">
+    <widget class="QLabel" name="var_drive_drivecount">
      <property name="geometry">
       <rect>
        <x>320</x>
@@ -742,7 +737,7 @@
       <string>[10]</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_46">
+    <widget class="QLabel" name="static_drive_label_1">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -755,7 +750,7 @@
       <string> Anzahl aller Verbundenen Speichermedien inklusive Netzlaufwerke</string>
      </property>
     </widget>
-    <widget class="QTableWidget" name="x999_DRIVETABLE">
+    <widget class="QTableWidget" name="var_drive_table">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -847,7 +842,7 @@
       </property>
      </column>
     </widget>
-    <widget class="Line" name="line_14">
+    <widget class="Line" name="static_drive_line_1">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -885,7 +880,7 @@
     <property name="lineWidth">
      <number>2</number>
     </property>
-    <widget class="Line" name="line_7">
+    <widget class="Line" name="static_proc_line_1">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -904,7 +899,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
-    <widget class="QLabel" name="label_15">
+    <widget class="QLabel" name="static_proc_label_1">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -917,7 +912,7 @@
       <string>Es laufen momentan</string>
      </property>
     </widget>
-    <widget class="QLabel" name="x200_var_ramcount_2">
+    <widget class="QLabel" name="var_proc_amount">
      <property name="geometry">
       <rect>
        <x>110</x>
@@ -930,7 +925,7 @@
       <string>[105]</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_16">
+    <widget class="QLabel" name="static_proc_label_2">
      <property name="geometry">
       <rect>
        <x>140</x>
@@ -943,7 +938,7 @@
       <string>Prozesse</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_17">
+    <widget class="QLabel" name="static_proc_label_4">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -956,7 +951,7 @@
       <string>Die Ressourcen intesivsten Prozesse:</string>
      </property>
     </widget>
-    <widget class="Line" name="line_8">
+    <widget class="Line" name="static_proc_line_3">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -975,7 +970,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
-    <widget class="QLabel" name="label_18">
+    <widget class="QLabel" name="static_proc_label_5">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -995,7 +990,7 @@
       <string>1.</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_19">
+    <widget class="QLabel" name="static_proc_label_6">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -1015,7 +1010,7 @@
       <string>2.</string>
      </property>
     </widget>
-    <widget class="Line" name="line_9">
+    <widget class="Line" name="static_proc_line_4">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -1034,7 +1029,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
-    <widget class="Line" name="line_11">
+    <widget class="Line" name="static_proc_line_7">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -1053,7 +1048,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
-    <widget class="Line" name="line_10">
+    <widget class="Line" name="static_proc_line_5">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -1072,7 +1067,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
-    <widget class="QLabel" name="label_20">
+    <widget class="QLabel" name="static_proc_label_7">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -1092,7 +1087,7 @@
       <string>3.</string>
      </property>
     </widget>
-    <widget class="Line" name="line_12">
+    <widget class="Line" name="static_proc_line_6">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -1108,7 +1103,7 @@
       <enum>Qt::Vertical</enum>
      </property>
     </widget>
-    <widget class="QLabel" name="label_21">
+    <widget class="QLabel" name="var_proc_1_name">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -1121,7 +1116,7 @@
       <string>SavService.exe</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_22">
+    <widget class="QLabel" name="static_label_size_7">
      <property name="geometry">
       <rect>
        <x>390</x>
@@ -1134,7 +1129,7 @@
       <string>MB</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_23">
+    <widget class="QLabel" name="static_label_size_8">
      <property name="geometry">
       <rect>
        <x>390</x>
@@ -1147,7 +1142,7 @@
       <string>MB</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_24">
+    <widget class="QLabel" name="static_label_size_6">
      <property name="geometry">
       <rect>
        <x>390</x>
@@ -1160,7 +1155,7 @@
       <string>MB</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_25">
+    <widget class="QLabel" name="var_proc_2_name">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -1173,7 +1168,7 @@
       <string>SavService.exe</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_26">
+    <widget class="QLabel" name="var_proc_3_name">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -1186,7 +1181,7 @@
       <string>SavService.exe</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_27">
+    <widget class="QLabel" name="var_proc_1_used">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -1202,7 +1197,7 @@
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="label_28">
+    <widget class="QLabel" name="var_proc_2_used">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -1218,7 +1213,7 @@
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="label_29">
+    <widget class="QLabel" name="var_proc_3_used">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -1234,7 +1229,7 @@
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="label_30">
+    <widget class="QLabel" name="static_proc_label_3">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -1247,7 +1242,7 @@
       <string>Ein Prozess verbraucht im Durchschnitt</string>
      </property>
     </widget>
-    <widget class="QLabel" name="x200_var_ramcount_3">
+    <widget class="QLabel" name="var_proc_usedperproc">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -1260,7 +1255,7 @@
       <string>[35]</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_31">
+    <widget class="QLabel" name="static_label_size_5">
      <property name="geometry">
       <rect>
        <x>225</x>
@@ -1273,7 +1268,7 @@
       <string>MB</string>
      </property>
     </widget>
-    <widget class="Line" name="line_13">
+    <widget class="Line" name="static_proc_line_2">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -1299,7 +1294,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>793</width>
+     <width>818</width>
      <height>21</height>
     </rect>
    </property>

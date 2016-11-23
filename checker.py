@@ -5,14 +5,15 @@ from termcolor import colored
 init()
 import alarm
 import os
-import sys
 import time
 import subprocess
 import logging
 import configparser
+from sys import executable
+from subprocess import Popen, CREATE_NEW_CONSOLE
 
-version = "1.2"
-versiondate = " (15.10.2016)"
+version = "1.3"
+versiondate = " (23.11.2016)"
 
 log = logging.getLogger()
 handler = logging.FileHandler('AllEye v.'+version+'.log')
@@ -169,7 +170,9 @@ def getSpace():
 	del temp
 	return tfix
 
-#def triggerWarning(warn):
+def raiseAlarm(cause):
+	let = alarm.lastexectime
+	alarm.raiseAlarm(cause,let)
 	
 	
 def visualize(ram,proc,space):
@@ -192,11 +195,13 @@ def visualize(ram,proc,space):
 		print("Im Computer sind ["+colored(str(ram[0]),green)+"] Ram-Riegel eingebaut!")
 	else:
 		print("Im Computer ist ["+colored(str(ram[0]),red)+"] Ram-Riegel eingebaut!"+colored("                                           WARNING: THIS MAY SLOW DOWN YOUR PC",red))
+		raiseAlarm("There is only one memory module build in this Computer, this potentially needs fixing.")
 	print("=======================================================================================================================")
 	if float(ram[1]) >= 8:
 		print("Gesamtkapazität   : ["+colored(str(ram[1]),green)+"] GB")
 	else:
 		print("Gesamtkapazität   : ["+colored(str(ram[1]),red)+"] GB"+colored("                                                      WARNING: THIS MAY SLOW DOWN YOUR PC",red))
+		raiseAlarm("There is less then 4GB of RAM build into this Computer, this potentially needs fixing.")
 	if float(ram[2]) >= 4:
 		print("Ram pro Riegel    : ["+colored(str(ram[2]),green)+"] GB")
 	else:
@@ -208,11 +213,13 @@ def visualize(ram,proc,space):
 	elif float(ram[3]) >= float(ram[1])*0.3:
 		print("Kapazität frei    : ["+colored(str(ram[3]),yellow)+"] GB"+colored("                                                      WARNING: QUOTA BELOW 50 PERCENT",yellow))
 		print("Kapazität benutzt : ["+colored(str(ram[4]),yellow)+"] GB")
-		#log.warning("The QUOTA of the RAM is below 30%")
+		#log.warning("The QUOTA of the RAM is below 50%")
+		raiseAlarm("The Quota of the RAM is below 50%, this potentially needs fixing.")
 	elif float(ram[3]) < float(ram[1])*0.3:
 		print("Kapazität frei    : ["+colored(str(ram[3]),red)+"] GB"+colored("                                                      WARNING: QUOTA BELOW 30%",red))
 		print("Kapazität benutzt : ["+colored(str(ram[4]),red)+"] GB")
 		#log.warning("The QUOTA of the RAM is below 30%")
+		raiseAlarm("The Quota of the RAM is below 30%, this needs fixing.")
 	print("=======================================================================================================================")
 	#####################################################################################
 	print("")
@@ -220,8 +227,10 @@ def visualize(ram,proc,space):
 		print("Es laufen momentan ["+colored(str(proc[0]),green)+"] Prozesse.")
 	elif proc[0] <= 150:
 		print("Es laufen momentan ["+colored(str(proc[0]),yellow)+"] Prozesse."+colored("                                                  WARNING: THRESHOLD EXCEEDED",yellow))
+		raiseAlarm("There are more then 100 Processes running, this potentially needs fixing.")
 	elif proc[0] > 150:
 		print("Es laufen momentan ["+colored(str(proc[0]),red)+"] Prozesse."+colored("                                                  WARNING: THRESHOLD EXCEEDED",red))
+		raiseAlarm("There are more then 150 Processes running, this needs fixing.")
 	print("=======================================================================================================================")
 	print("D.h. ein Prozess verbraucht durchschnittlich ["+colored(str(proc[1]),cyan)+"] MB")
 	print("-----------------------------------------------------")
@@ -245,6 +254,7 @@ if __name__ == "__main__":
 	os.system("mode 120,60")
 	log.info("--------------- AllEye v."+version+versiondate+" Log ---------------")
 	iniVar = readCFG('Settings.ini')
+	alarm.refresh()
 	
 	while True:
 	
@@ -253,7 +263,7 @@ if __name__ == "__main__":
 			proc  = getProc()
 			space = getSpace()
 			visualize(ram,proc,space)
-			#time.sleep(1)
+
 		except Exception as e:
 			log.error("Error Message:",e)
 			continue
