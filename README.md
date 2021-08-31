@@ -3,7 +3,6 @@
     Current Version: [2.0]
     Version Date   : [31.08.2021]
 
-<br>
 
 ## Description:
 
@@ -22,8 +21,7 @@ Currently Tracking:
   * Disk Space
   * Processes
 
-<br>
-<br>
+
 <br>
 
 ## Changelog:
