@@ -23,10 +23,10 @@ Currently Tracking:
   * Processes
 
 <br>
+<br>
+<br>
 
 ## Changelog:
-
-<sup>
 
 * 0.1 
   * Initial Commit
@@ -60,5 +60,3 @@ Currently Tracking:
 * 2.0 [31.08.2021]
   * since this was one of my first projects i did a Major overhaul
   * added comments and rewrote almost all the code to match my current skillset
-
-</sup>
