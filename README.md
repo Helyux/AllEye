@@ -1,9 +1,32 @@
 # AllEye
 
-### Current Version: [1.3]
-    Version Date   : [23.11.2016]
+    Current Version: [2.0]
+    Version Date   : [31.08.2021]
 
-### Changelog:
+<br>
+
+## Description:
+
+> AllEye is a very simple system tracking tool
+
+Current Features include:
+
+  * Tracking
+  * Logging
+  * Configuring
+  * Alarms
+
+Currently Tracking:
+  
+  * RAM
+  * Disk Space
+  * Processes
+
+<br>
+
+## Changelog:
+
+<sup>
 
 * 0.1 
   * Initial Commit
@@ -33,20 +56,9 @@
   * Added alarm.py support
   * [NOT DONE YET] Configured AllEye to check thresholds from Settings.ini
   * [NOT DONE YET] Screenflash Error fix
-  
-### Description:
 
-Simple System Tracking Tool
+* 2.0 [31.08.2021]
+  * since this was one of my first projects i did a Major overhaul
+  * added comments and rewrote almost all the code to match my current skillset
 
-Current Features:
-
-  * Tracking
-  * Logging
-  * Configuring
-  * Alarms
-
-Currently Tracking:
-  
-  * RAM
-  * Disk Space
-  * Processes
+</sup>
